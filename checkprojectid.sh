@@ -1,5 +1,5 @@
 #!/bin/sh
 
-source gcpcloudshell.sh
+source ./gcpcloudshell.sh
 
 export -f CheckProjectID

@@ -8,4 +8,4 @@ else
 echo 'please check project id'
 fi
 export Bucket_id=$Bucket_id
-gsutil mb -p $DEVSHELL_PROJECT_ID gs://$Bucket_id
+gsutil mb gs://${Bucket_id} 2> success-stderr > success-stdout

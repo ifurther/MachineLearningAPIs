@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ ! -e $1 ] && [ -e $DEVSHELL_PROJECCT_ID ];then
-Bucket_id=$DEVSHELL_PROJECCT_ID;
+if [ ! -e $1 ] && [ -e $DEVSHELL_PROJECT_ID ];then
+Bucket_id=$DEVSHELL_PROJECT_ID;
 elif [ -e $1 ];then
 Bucket_id=$1
 else

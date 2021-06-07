@@ -8,6 +8,10 @@ CheckProjectID(){
 	fi
 }
 
+GETPROJECTID(){
+	PROJECT_ID=`gcloud config get-value project`
+	echo $PROJECT_ID
+}
 GETACCESSTOKEN(){
 	ACCESS_TOKEN=$(gcloud auth print-access-token)
 	echo $ACCESS_TOKEN

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -e $1 ] && [[ $DEVSHELL_PROJECT_ID ]];then
+if ! [[ $1 ]] && [[ $DEVSHELL_PROJECT_ID ]];then
 Bucket_id=$DEVSHELL_PROJECT_ID;
 elif [[ $1 ]];then
 Bucket_id=$1

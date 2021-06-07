@@ -8,4 +8,4 @@ else
 echo 'please check project id'
 fi
 export Bucket_id=$Bucket_id
-gsutil mb gs://${Bucket_id} #2> success-stderr > success-stdout
+gsutil mb -c multi_regional gs://${Bucket_id} #2> success-stderr > success-stdout

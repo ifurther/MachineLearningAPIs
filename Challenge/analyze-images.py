@@ -85,8 +85,8 @@ for file in files:
             # TBD: For non EN locales pass the description data to the translation API
             # ref: https://googleapis.dev/python/translation/latest/client.html#google.cloud.translate_v2.client.Client.translate
             # Set the target_language locale to 'en')
-            result = translate_client.translate(translated_text, target_language='en')
-            translated_text = result['translatedText']
+            translation = translate_client.translate(text_data, target_language='en')
+            translated_text = translation['translatedText']
         print(translated_text)
         
         # if there is response data save the original text read from the image, 

@@ -1,14 +1,7 @@
-gcloud compute networks create NETWORK \
-    --subnet-mode=custom \
-    --bgp-routing-mode=DYNAMIC_ROUTING_MODE \
-    --mtu=MTU
-gcloud compute networks subnets create SUBNET \
-    --network=NETWORK \
-    --range=PRIMARY_RANGE \
-    --region=REGION
-gcloud compute networks subnets delete SUBNET \
-    --region=REGION
-gcloud compute networks subnets update SUBNET \
-  --region=REGION \
-  --add-secondary-ranges=SECONDARY_RANGE_NAME=SECONDARY_RANGE
+gcloud iam service-accounts create my-account --display-name my-account
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:my-account@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/bigquery.admin
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:my-account@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.objectAdmin
+gcloud iam service-accounts keys create key.json --iam-account=my-account@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
+export GOOGLE_APPLICATION_CREDENTIALS=key.json
 
+#gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py .

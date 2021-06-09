@@ -11,12 +11,14 @@ export SECOND_Region=europe-west1
 export SECOND_SUBNET=10.1.3.0/24
 
 EnvToArray() {
+	Array=${1}
+	declare -A Array=
 	for i in $(env |grep ${!1});do
 		eval $(echo $i|sed 's/=/]=/g' |sed 's/\_/[/g');done
 }
 
 CreateCustomVPC() {
-	Array=${!1}
+	Array=${1} #${!1}
 	gcloud compute networks create $Array[NETWORK] --subnet-mode custom
 	gcloud compute networks subnets create $Array[NETWORK] --network $Array[NETWORK] \
     		--range Array[SUBNET] --region $Array[Region]
